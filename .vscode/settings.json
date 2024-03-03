@@ -1,0 +1,6 @@
+{
+    "python.autoComplete.extraPaths": [],
+    "python.analysis.extraPaths": [
+        "C:\\Users\\kzulf\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages"
+    ]
+}
