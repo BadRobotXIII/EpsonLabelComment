@@ -140,19 +140,17 @@ def main():
 
 
     # # set the minimum window size  to the current size
-    mainWin.Update()
+    mainWin.update()
 
     #Call tKinter main driver
-    mainWin.Start()
+    mainWin.start()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 ---------------------|Generate files when requested by user|---------------------
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 def generate_files():
     #Declare variables and open necessary file streams
-    filePath = ''
     path = os.getcwd()
-    print(path)
     filePath = str(path)
     fileName = 'PLC Robot Interface.xlsx'
     sheetName = 'PLC > Robot'
