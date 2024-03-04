@@ -2,5 +2,11 @@
     "python.autoComplete.extraPaths": [],
     "python.analysis.extraPaths": [
         "C:\\Users\\kzulf\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages"
-    ]
+    ],
+    "editor.semanticTokenColorCustomizations": {
+        "[Neon Dark Theme]": {}
+    },
+    "editor.tokenColorCustomizations": {
+        "[Neon Dark Theme]": {}
+    }
 }
