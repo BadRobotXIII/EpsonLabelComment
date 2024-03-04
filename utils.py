@@ -41,7 +41,7 @@ class MainWindow:
     def on_exit(self):
 
         self.app_closing = True
-
+    
 # width wise resizing of the tag label (window)
 class LabelResizing(Label):
     def __init__(self,parent,**kwargs):

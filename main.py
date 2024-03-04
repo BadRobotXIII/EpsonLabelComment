@@ -29,7 +29,7 @@ from tkinter import *
 from tkinter import filedialog  
 import tkinter.font as tkfont
 from customtkinter import *
-from windowUtils import *
+from utils import *
 
 #Acquire python version from platform
 pythonVersion = platform.python_version()
@@ -91,12 +91,12 @@ def main():
     entrySaveDirectory = StringVar()
     txbxSaveDir = CTkEntry(mainWin.frameFileSel, textvariable=entrySaveDirectory, width=450, fg_color='darkgrey',
                                     state=NORMAL, border_color='black', text_color='black', font=fnt1)
-    entrySaveDirectory.set(r'C:\EpsonRC70\projects')
+    entrySaveDirectory.set('')
     txbxSaveDir.pack(anchor='w', pady=100)
 
     #Button - Launch file explorer
     btnSaveDir = CTkButton(mainWin.frameFileSel, bg_color='lightgrey', border_width=2, border_color='black', fg_color='grey',
-                            text_color='black', width=3, height=28, text='...', font=fnt, command=get_directory_loc)
+                            text_color='black', width=3, height=28, text='...', font=fnt, command=get_save_dir)
     btnSaveDir.pack(side='left', anchor=W, after=txbxSaveDir, padx=0, pady=0, ipadx=0, ipady=0)
 
     #Menu - Popup menu to paste from clipboard
@@ -114,12 +114,12 @@ def main():
     entrySourceDirectory = StringVar()
     txbxSourceDir = CTkEntry(mainWin.frameFileSel1, textvariable=entrySourceDirectory, width=450, fg_color='darkgrey',
                                     state=NORMAL,border_color='black', text_color='black', font=fnt1)
-    entrySourceDirectory.set(r'C:\EpsonRC70\projects')
+    entrySourceDirectory.set('')
     txbxSourceDir.pack(anchor='w', pady=100)
     
     #Button - Launch file explorer
     btnSourceDir = CTkButton(mainWin.frameFileSel1, bg_color='lightgrey', border_width=2, border_color='black', fg_color='grey',
-                            text_color='black', width=3, height=28, text='...', font=fnt, command=get_directory_loc)
+                            text_color='black', width=3, height=28, text='...', font=fnt, command=get_source_dir)
     btnSourceDir.pack(side='left', anchor=W, after=txbxSourceDir, padx=0, pady=0, ipadx=0, ipady=0)
 
     #Menu - Popup menu to paste from clipboard
@@ -155,9 +155,6 @@ def generate_files():
     fileName = 'PLC Robot Interface.xlsx'
     sheetName = 'PLC > Robot'
     sheets = {'INPUT':'PLC > Robot', 'OUTPUT': 'Robot > PLC', 'ERRORS': 'Errors', 'POINTS': 'RobotPoints'}
-    print(sheets)
-    sheetInput = sheets['INPUT']
-    print(sheetInput)
 
     filePath  = os.path.join(filePath, fileName)
     print(filePath)
@@ -219,11 +216,19 @@ def paste_menu(event, tbSaveDir):
         tbSaveDir.select_range(0, 'end')
         popupMenuTbSaveDir.post(event.x_root, event.y_root)
     
-def get_directory_loc():
+def get_save_dir():
     string = filedialog.askdirectory(parent=mainWin.root, initialdir='C:"\"',title='Please select a directory')
     entrySaveDirectory.set(string)
     print(str(string))
+    return
+
+def get_source_dir():
+    string = filedialog.askdirectory(parent=mainWin.root, initialdir='C:"\"',title='Please select a directory')
+    entrySourceDirectory.set(string)
+    print(str(string))
     return 
+
+
 
 if __name__=='__main__':
     main()
