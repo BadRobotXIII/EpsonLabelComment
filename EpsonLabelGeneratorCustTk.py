@@ -87,7 +87,7 @@ def main():
                         fg='black', bg='lightgrey',height=1, width=18, font='Consolas 11')
     lblSaveDir.pack(anchor='w', ipadx=0, ipady=0)
 
-    #Entry - Save directory  
+    #Entry - Epson project directory  
     entrySaveDirectory = StringVar()
     txbxSaveDir = CTkEntry(mainWin.frameFileSel, textvariable=entrySaveDirectory, width=450, fg_color='darkgrey',
                                     state=NORMAL, border_color='black', text_color='black', font=fnt1)
@@ -154,6 +154,10 @@ def generate_files():
     filePath = str(path)
     fileName = 'PLC Robot Interface.xlsx'
     sheetName = 'PLC > Robot'
+    sheets = {'INPUT':'PLC > Robot', 'OUTPUT': 'Robot > PLC', 'ERRORS': 'Errors', 'POINTS': 'RobotPoints'}
+    print(sheets)
+    sheetInput = sheets['INPUT']
+    print(sheetInput)
 
     filePath  = os.path.join(filePath, fileName)
     print(filePath)
@@ -178,6 +182,7 @@ def generate_files():
         keys[r'nbit'] = str(cell)
         keys[r'sLabel'] = str('\"' + key + '\"')
         keys[r'sDescription'] = str('\"' + keyVal + '\"')
+        print(keys)
         outFile.writelines('Label{} '.format(cell + 1))
         outFile.writelines(json.dumps(keys, sort_keys=False, indent=4, separators=('', '=')))
         outFile.writelines('\n\r')

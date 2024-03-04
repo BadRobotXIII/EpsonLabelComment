@@ -30,10 +30,10 @@ class MainWindow:
         self.frameFileSel1 = Frame(self.root, background='Lightgrey', width=500, height=200)
         self.frameFileSel1.pack(anchor='e', fill=X, ipadx=0, ipady=0)
 
-    def Start(self):
+    def start(self):
         self.root.mainloop()
 
-    def Update(self):
+    def update(self):
         # set the minimum window size  to the current size
         self.root.update()
         self.root.minsize(self.root.winfo_width(), self.root.winfo_height() * .75)
