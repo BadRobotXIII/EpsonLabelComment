@@ -16,7 +16,7 @@ class MainWindow:
         self.root.config(background='#222222')
         self.root._set_appearance_mode('dark')
         self.root.title('Epson Label Generator v1.0.0 ' + 'Python v ' + platform.python_version())
-        self.root.geometry('500x500')
+        self.root.geometry('500x400')
         self.root.bind('<Destroy>', self.on_exit)
 
                 #Frame to hold configuration variables

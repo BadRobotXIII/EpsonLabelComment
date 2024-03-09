@@ -18,6 +18,7 @@
 #################################################################################
 ## Packaged with pyinstaller. Input line below to package
 ## command line arguments - pyinstall -noconsole -onedir EpsonLabelGeneratorCustTk.py
+## Edited JSON library location C:\Users\kzulf\AppData\Local\Programs\Python\Python312\Lib\json
 #################################################################################
 import os
 import openpyxl
